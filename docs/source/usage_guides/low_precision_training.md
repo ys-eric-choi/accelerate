@@ -47,7 +47,7 @@ from accelerate.utils import FP8RecipeKwargs
 kwargs = [FP8RecipeKwargs(backend="msamp")]
 # Or to specify the backend as `TransformersEngine` even if MS-AMP is installed
 # kwargs = [FP8RecipeKwargs(backend="te")]
-accelerator = Accelerator(mixed_precision="fp8", kwarg_handlers=kwargs)
+accelerator = Accelerator(mixed_precision="fp8", kwargs_handlers=kwargs)
 ```
 
 ```{yaml}
@@ -78,7 +78,7 @@ To specify an optimization level, pass it to the `FP8KwargsHandler` by setting t
 from accelerate import Accelerator
 from accelerate.utils import FP8RecipeKwargs
 kwargs = [FP8RecipeKwargs(backend="msamp", optimization_level="O2")]
-accelerator = Accelerator(mixed_precision="fp8", kwarg_handlers=kwargs)
+accelerator = Accelerator(mixed_precision="fp8", kwargs_handlers=kwargs)
 ```
 
 Or during `accelerate launch` via `--fp8_backend=msamp --fp8_opt_level=O2`
@@ -104,7 +104,7 @@ To use it, specify `backend="te"` and modify any of the arguments you want as pa
 from accelerate import Accelerator
 from accelerate.utils import FP8RecipeKwargs
 kwargs = [FP8RecipeKwargs(backend="te", ...)]
-accelerator = Accelerator(mixed_precision="fp8", kwarg_handlers=kwargs)
+accelerator = Accelerator(mixed_precision="fp8", kwargs_handlers=kwargs)
 ```
 
 Or during `accelerate launch` via `--fp8_backend=te ...`. Use `accelerate launch --fp8_backend=te -h` to see relevent arguments.
